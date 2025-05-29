@@ -1,4 +1,4 @@
-import 'package:consumindo_api_com_flutter/http/data/http_client.dart';
+import 'package:consumindo_api_com_flutter/data/http/http_client.dart';
 import 'package:consumindo_api_com_flutter/pages/login/login_page.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
