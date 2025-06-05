@@ -84,7 +84,12 @@ class _LoginPageState extends State<LoginPage> {
                     child: Center(
                       child:
                           clicou == true
-                              ? CircularProgressIndicator(color: Colors.white)
+                              ? Padding(
+                                padding: const EdgeInsets.all(8.0),
+                                child: CircularProgressIndicator(
+                                  color: Colors.white,
+                                ),
+                              )
                               : Text(
                                 'Logar',
                                 style: TextStyle(
