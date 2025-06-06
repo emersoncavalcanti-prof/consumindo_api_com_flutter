@@ -67,10 +67,37 @@ class _LoginPageState extends State<LoginPage> {
               ),
               SizedBox(height: 15),
               InkWell(
-                onTap: () {
+                onTap: () async {
+                  if (_formkey.currentState!.validate()) {
+                    setState(() {
+                      clicou = !clicou;
+                    });
+                  }
+
+                  await store.login(
+                    email: controllerEmail.text,
+                    password: controllerPassword.text,
+                  );
+
                   setState(() {
                     clicou = !clicou;
                   });
+
+                  if (store.error.value.isNotEmpty) {
+                    if (!mounted) return;
+
+                    ScaffoldMessenger.of(context).showSnackBar(
+                      SnackBar(
+                        content: Text(
+                          'Login ou senha inválidos',
+                          style: TextStyle(color: Colors.white),
+                        ),
+                      ),
+                    );
+                  } else {
+                    if (!mounted) return;
+                    Navigator.pushReplacementNamed(context, '/home');
+                  }
                 },
                 child: Center(
                   child: AnimatedContainer(

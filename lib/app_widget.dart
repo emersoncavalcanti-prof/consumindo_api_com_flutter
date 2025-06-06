@@ -1,4 +1,5 @@
 import 'package:consumindo_api_com_flutter/data/http/http_client.dart';
+import 'package:consumindo_api_com_flutter/pages/home/home_page.dart';
 import 'package:consumindo_api_com_flutter/pages/login/login_page.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
@@ -24,7 +25,10 @@ class AppWidget extends StatelessWidget {
         title: 'Consumindo API',
         debugShowCheckedModeBanner: false,
         initialRoute: '/',
-        routes: {'/': (context) => LoginPage()},
+        routes: {
+          '/': (context) => LoginPage(),
+          '/home': (context) => HomePage(),
+        },
       ),
     );
   }
